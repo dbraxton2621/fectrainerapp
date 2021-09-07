@@ -1,3 +1,4 @@
+\c fce;
 insert into trainers (picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, swimming, cycling) values ('', 'Devin', 'Braxton', 'dbraxtonb2621@gmail.com', '803-640-2076', true, false, false, false, false);
 insert into trainers (picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, swimming, cycling) values ('', 'Nikko', 'Colby', 'nikkoc@gmail.com', '034-758-3073', false, true, false, false, false);
 insert into trainers (picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, swimming, cycling) values ('', 'Alfred', 'Benford', 'dbraxtonb2621@gmail.com', '093-486-0386', false, false, true, false, false);
