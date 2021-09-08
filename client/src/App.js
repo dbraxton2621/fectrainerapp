@@ -80,6 +80,7 @@ class App extends React.Component {
     return (
     <div className='container'>
       <h1>Trainers Hubs</h1>
+      <h2> Test </h2>
       <Trainers trainers={trainers}/>
     
     
