@@ -77,11 +77,12 @@ class App extends React.Component {
     // }
     
 
-
     return (
       <Trainers trainers={trainers}/>
     );
  
+  }
+
 }
-}
+
 export default App;
