@@ -12,6 +12,8 @@ class App extends React.Component {
     categories: false
   };
 
+  // add something here 
+  
   async componentDidMount () {
     this.setState({loading: true})
     const res = await axios.get("http://localhost:5500/api/trainers")
