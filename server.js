@@ -4,12 +4,12 @@ const PORT = process.env.PORT || 5500;
 const cors = require('cors')
 const { Pool } = require('pg');
 
-const pool = new Pool ({
-    user: 'thuandang',
+const pool = new Pool({
+    user: 'root',
+    password: 'password',
     host: 'localhost',
-    database: 'fce',
-    // password: '',
-    port: 5432,
+    port: 5433,
+    database: 'fce'
 })
 
 app.use(express.json())
