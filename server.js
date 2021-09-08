@@ -5,18 +5,18 @@ const cors = require('cors')
 const { Pool } = require('pg');
 
 const pool = new Pool ({
-    user: 'thuandang',
+    user: 'ncolby',
     host: 'localhost',
     database: 'fce',
     // password: '',
-    port: 5432,
+    port: 5434,
 })
 
 app.use(express.json())
 app.use(cors())
 
 /**********************************************************/
-//GET ALL
+//GET ALL TRAINERS
 app.get('/api/trainer', async (req, res, next) => {
     try {
         const {rows} = await pool.query('SELECT * FROM trainers')
@@ -27,7 +27,7 @@ app.get('/api/trainer', async (req, res, next) => {
     }
 })
 
-// GET ONE ITEM
+// GET ONE TRAINER ITEM
 app.get('/api/trainer/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
@@ -38,6 +38,8 @@ app.get('/api/trainer/:id', async (req, res, next) => {
         res.status(500).json(error)
     }
 })
+
+// POST A NEW TRAINER
 
 app.post('/api/trainer/', async (req, res, next) => {
     try {
@@ -51,6 +53,8 @@ app.post('/api/trainer/', async (req, res, next) => {
     }
 })
 
+// DELETE A TRAINER
+
 app.delete('/api/trainer/:id', async (req, res, next) => {
     try {
         const {id} = req.params
@@ -61,6 +65,8 @@ app.delete('/api/trainer/:id', async (req, res, next) => {
         res.status(500).json(error)
     }
 })
+
+// UPDATE A TRAINER
 
 app.patch('/api/trainer/:id', async (req, res, next) => {
     try {
@@ -78,7 +84,7 @@ app.patch('/api/trainer/:id', async (req, res, next) => {
 
 /**********************************************************/
 
-// GET all 
+// GET ALL COMMENTS
 app.get('/api/comments', async(req, res, next) => {
     try {
         let {rows} = await pool.query('SELECT * FROM comments')
@@ -89,7 +95,7 @@ app.get('/api/comments', async(req, res, next) => {
     }
 })
 
-// GET one based on user id 
+// GET ONE COMMENT based on user id 
 app.get('/api/comments/:id', async(req, res, next) => {
     try {
         const {id} = req.params
@@ -101,7 +107,7 @@ app.get('/api/comments/:id', async(req, res, next) => {
     }
 })
 
-// POST one 
+// POST COMMENT 
 app.post('/api/comments', async(req, res, next) => {
     try {
         const {comment_body, trainer_id} = req.body
@@ -118,7 +124,7 @@ app.post('/api/comments', async(req, res, next) => {
     }
 })
 
-// UPDATE one
+// UPDATE A COMMENT
 app.patch('/api/comments/:id', async(req, res, next) => {
     try {
         const {id} = req.params
@@ -135,7 +141,7 @@ app.patch('/api/comments/:id', async(req, res, next) => {
     }
 })
 
-// DELETE one 
+// DELETE A COMMENT
 app.delete('/api/comments/:id', async(req, res, next) => {
     try {
         const {id} = req.params
