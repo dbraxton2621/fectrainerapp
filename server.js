@@ -5,10 +5,10 @@ const cors = require('cors')
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: 'root',
-    password: 'password',
+    user: 'thuandang',
+    password: '',
     host: 'localhost',
-    port: 5433,
+    // port: 5432,
     database: 'fce'
 })
 
@@ -17,7 +17,7 @@ app.use(cors())
 
 /**********************************************************/
 //GET ALL
-app.get('/api/trainer', async (req, res, next) => {
+app.get('/api/trainers', async (req, res, next) => {
     try {
         const {rows} = await pool.query('SELECT * FROM trainers')
         res.status(200).json(rows)
@@ -28,7 +28,7 @@ app.get('/api/trainer', async (req, res, next) => {
 })
 
 // GET ONE ITEM
-app.get('/api/trainer/:id', async (req, res, next) => {
+app.get('/api/trainers/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
         const {rows} = await pool.query('SELECT * FROM trainers WHERE trainer_id = $1', [id]);
@@ -39,7 +39,7 @@ app.get('/api/trainer/:id', async (req, res, next) => {
     }
 })
 
-app.post('/api/trainer/', async (req, res, next) => {
+app.post('/api/trainers/', async (req, res, next) => {
     try {
         const {picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming} = req.body
         // add data validation
@@ -51,7 +51,7 @@ app.post('/api/trainer/', async (req, res, next) => {
     }
 })
 
-app.delete('/api/trainer/:id', async (req, res, next) => {
+app.delete('/api/trainers/:id', async (req, res, next) => {
     try {
         const {id} = req.params
         const {rows} = await pool.query('DELETE from trainers WHERE trainer_id = $1 RETURNING *', [id])
@@ -62,7 +62,7 @@ app.delete('/api/trainer/:id', async (req, res, next) => {
     }
 })
 
-app.patch('/api/trainer/:id', async (req, res, next) => {
+app.patch('/api/trainers/:id', async (req, res, next) => {
     try {
         const {picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming} = req.body
         const {id} = req.params
