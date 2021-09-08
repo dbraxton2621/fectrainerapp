@@ -2,10 +2,10 @@ import React from 'react'
 
 const TrainerItem = ({trainer}) => {
     return (
-        <div>
-            <h1>{`Name: ${trainer.first_name} ${trainer.last_name}`}</h1>
-            <p>{`Email: ${trainer.email}`}</p>
-            <p>{`Phone: ${trainer.phone_number}`}</p>
+        <div className="trainerItemContainer">
+            <h1 className="trainerName">{`Name: ${trainer.first_name} ${trainer.last_name}`}</h1>
+            <p className="trainerEmail">{`Email: ${trainer.email}`}</p>
+            <p className="trainerPhoneNumber">{`Phone: ${trainer.phone_number}`}</p>
         </div>
     )
 }

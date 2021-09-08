@@ -8,7 +8,7 @@ const pool = new Pool ({
     user: 'ncolby',
     host: 'localhost',
     database: 'fce',
-    // password: '',
+    password: 'password',
     port: 5434,
 })
 
