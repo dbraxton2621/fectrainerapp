@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Categories extends Component {
+class Categories extends React.Component {
     
     render() {
         return (
